@@ -21,13 +21,12 @@ metadata:
 spec:
   selector:
     app: podci
-
+  type: ClusterIP # (case-sensitive: I must be capital)
   # selector mde apan sangat ahe "app: podci" jo object ahe kiva 
   #  apan mhanu shakto jya pod la pan "podci" ha tag dila ahe tyach 
   # pod la he clusterIp attach krun dya
 
   # In short clusterip service tyach pod la attach kara jya pod la podci navane key & value attach kelela ahe
-  type: ClusterIp
 
   ports:
   - protocol: TCP
