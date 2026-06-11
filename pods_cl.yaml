@@ -2,7 +2,8 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: pod-ci
-  app: podci 
+  labels:
+    app: podci
 spec:
   containers:
   - name: my-name
@@ -12,23 +13,21 @@ spec:
 
 #  --- : this indicate one object script is ends here, 
 # now we can write another object script in same file 
-
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: ci-service
-  app: podcl
 spec:
- selector:
-  app: podci 
-   # selector mde apan sangat ahe "app: podci" jo object ahe kiva 
+  selector:
+    app: podci
+  # selector mde apan sangat ahe "app: podci" jo object ahe kiva 
   #  apan mhanu shakto jya pod la pan "podci" ha tag dila ahe tyach 
   # pod la he clusterIp attach krun dya
 
   # In short clusterip service tyach pod la attach kara jya pod la podci navane key & value attach kelela ahe
-  
+
   ports:
-    - protocol: TCP
+  - protocol: TCP
     port: 80
-    targetport: 80
+    targetPort: 80
